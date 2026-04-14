@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky Bridge Saga — Canon Index</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Crimson+Pro:wght@400;600&family=IM+Fell+English:ital@0;1&display=swap');
+
+  :root {
+    --brass:        #b8860b;
+    --brass-light:  #d4a84b;
+    --brass-pale:   #f0d080;
+    --copper:       #8b5e3c;
+    --cavorite:     #4a8fa8;
+    --cavorite-glow:#7ec8e3;
+    --dark:         #1a1612;
+    --mid:          #2e2820;
+    --warm:         #3d3428;
+    --parchment:    #f5ead0;
+    --parch-mid:    #e8d8b0;
+    --parch-dark:   #c8b888;
+    --text:         #2a2218;
+    --text-light:   #5a4e38;
+    --confirmed:    #2d6a2d;
+    --open:         #7a4a00;
+    --caution:      #8b2020;
+    --border:       rgba(184,134,11,0.25);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--dark);
+    color: var(--parchment);
+    font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--mid);
+    border-bottom: 2px solid var(--brass);
+    padding: 2rem 2.5rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .site-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--brass-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .site-header .sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    color: var(--parch-dark);
+    font-size: 0.95rem;
+  }
+  .nav-pills {
+    margin-left: auto;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .nav-pills a {
+    background: var(--warm);
+    border: 1px solid var(--border);
+    color: var(--parch-dark);
+    text-decoration: none;
+    padding: 0.2rem 0.75rem;
+    border-radius: 2px;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    transition: all 0.15s;
+    font-family: 'Crimson Pro', serif;
+  }
+  .nav-pills a:hover {
+    background: var(--brass);
+    color: var(--dark);
+    border-color: var(--brass);
+  }
+  .nav-pills a.live {
+    background: rgba(74,143,168,0.15);
+    border-color: var(--cavorite);
+    color: var(--cavorite-glow);
+  }
+  .nav-pills a.live:hover {
+    background: var(--cavorite);
+    color: var(--dark);
+  }
+  .doc-link-bar {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.9rem 1.1rem;
+    background: rgba(74,143,168,0.07);
+    border: 1px solid rgba(74,143,168,0.25);
+    border-radius: 3px;
+    align-items: center;
+  }
+  .doc-link-bar .dlb-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cavorite-glow);
+    opacity: 0.7;
+    flex-basis: 100%;
+    margin-bottom: 0.25rem;
+  }
+  .doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--warm);
+    border: 1px solid rgba(74,143,168,0.4);
+    border-radius: 3px;
+    padding: 0.55rem 1.1rem;
+    text-decoration: none;
+    color: var(--cavorite-glow);
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.92rem;
+    transition: all 0.15s;
+  }
+  .doc-link:hover {
+    background: rgba(74,143,168,0.2);
+    border-color: var(--cavorite-glow);
+    color: #fff;
+  }
+  .doc-link .dl-icon { opacity: 0.6; font-size: 1rem; }
+  .doc-link .dl-title { font-weight: 600; letter-spacing: 0.02em; }
+  .doc-link .dl-sub { font-size: 0.78rem; color: var(--parch-dark); font-style: italic; }
+
+  /* LAYOUT */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .full-width { grid-column: 1 / -1; }
+
+  /* SECTION */
+  .section {
+    background: var(--warm);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .section-head {
+    background: var(--mid);
+    border-bottom: 1px solid var(--border);
+    padding: 0.65rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .section-head h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brass-light);
+  }
+  .section-head .glyph {
+    color: var(--brass);
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+  .section-body { padding: 0.9rem 1.1rem; }
+
+  /* ENTRY */
+  .entry {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(184,134,11,0.1);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.6rem;
+    align-items: baseline;
+  }
+  .entry:last-child { border-bottom: none; }
+  .entry .badge {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-top: 0.45em;
+    flex-shrink: 0;
+  }
+  .badge.confirmed { background: #4a9a4a; }
+  .badge.open      { background: var(--brass-light); }
+  .badge.caution   { background: #c05050; }
+  .badge.cavorite  { background: var(--cavorite-glow); }
+
+  .entry .label {
+    font-weight: 600;
+    color: var(--parchment);
+    font-size: 0.93rem;
+  }
+  .entry .value {
+    color: var(--parch-mid);
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+  .entry .value em {
+    color: var(--brass-pale);
+    font-style: italic;
+  }
+  .entry .value .tag {
+    display: inline-block;
+    background: rgba(184,134,11,0.15);
+    border: 1px solid rgba(184,134,11,0.3);
+    border-radius: 2px;
+    padding: 0 0.35rem;
+    font-size: 0.75rem;
+    color: var(--brass-light);
+    margin-left: 0.3rem;
+    vertical-align: middle;
+    font-style: normal;
+    font-family: 'Crimson Pro', serif;
+  }
+
+  /* KEY ENTRY — bigger emphasis */
+  .entry-key {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(184,134,11,0.15);
+  }
+  .entry-key:last-child { border-bottom: none; }
+  .entry-key .k-head {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    color: var(--brass-light);
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+  .entry-key .k-body {
+    color: var(--parch-mid);
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .entry-key .k-body strong {
+    color: var(--parchment);
+    font-weight: 600;
+  }
+
+  /* STATUS LEGEND */
+  .legend {
+    display: flex;
+    gap: 1.2rem;
+    padding: 0.6rem 1.1rem;
+    background: rgba(0,0,0,0.2);
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--parch-dark);
+    flex-wrap: wrap;
+  }
+  .legend span { display: flex; align-items: center; gap: 0.35rem; }
+
+  /* OPEN QUESTION */
+  .oq {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(184,134,11,0.1);
+    font-size: 0.87rem;
+  }
+  .oq:last-child { border-bottom: none; }
+  .oq .qnum {
+    font-weight: 600;
+    color: var(--brass-light);
+    margin-right: 0.4rem;
+  }
+  .oq .qtext { color: var(--parch-mid); }
+  .oq .qtag {
+    font-size: 0.72rem;
+    color: var(--brass);
+    font-style: italic;
+    margin-left: 0.3rem;
+  }
+
+  /* TIMELINE */
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid rgba(184,134,11,0.1);
+    font-size: 0.87rem;
+  }
+  .timeline-row:last-child { border-bottom: none; }
+  .timeline-row .yr {
+    color: var(--brass-light);
+    font-weight: 600;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.92rem;
+    text-align: right;
+    padding-right: 0.6rem;
+    border-right: 1px solid var(--border);
+  }
+  .timeline-row .ev { color: var(--parch-mid); line-height: 1.4; }
+
+  /* COLOUR SWATCH */
+  .swatch-row {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid rgba(184,134,11,0.1);
+    font-size: 0.87rem;
+  }
+  .swatch-row:last-child { border-bottom: none; }
+  .swatch {
+    width: 22px; height: 22px;
+    border-radius: 3px;
+    border: 1px solid rgba(255,255,255,0.15);
+    flex-shrink: 0;
+  }
+  .swatch-row .sw-label { color: var(--parchment); font-weight: 600; flex: 1; }
+  .swatch-row .sw-note { color: var(--parch-dark); font-size: 0.82rem; }
+
+  /* DIVIDER */
+  .divider {
+    grid-column: 1 / -1;
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0.5rem 0;
+  }
+
+  /* NOTE BOX */
+  .note-box {
+    background: rgba(0,0,0,0.25);
+    border-left: 3px solid var(--brass);
+    padding: 0.6rem 0.9rem;
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    color: var(--parch-dark);
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .note-box strong { color: var(--brass-light); font-style: normal; }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    .main { grid-template-columns: 1fr; }
+    .full-width { grid-column: 1; }
+    .site-header { flex-direction: column; gap: 0.75rem; }
+    .nav-pills { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Sky Bridge Saga</h1>
+  <span class="sub">Canon Index — Source of Truth</span>
+  <nav class="nav-pills">
+    <a href="#characters">Characters</a>
+    <a href="#geography">Geography</a>
+    <a href="#technology">Technology</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#cosmology">Cosmology</a>
+    <a href="#visual">Visual Canon</a>
+    <a href="#open">Open Questions</a>
+    <a href="https://folio.jacobsiler.com/?folio=proj_1776163661952_80nr9n" target="_blank" class="live">📖 Saga Bible ↗</a>
+    <a href="https://folio.jacobsiler.com/?folio=proj_1776165768514_mb7fmd" target="_blank" class="live">⚙ Games Bible ↗</a>
+  </nav>
+</header>
+
+<main class="main">
+
+  <!-- ═══════════════════════════════════════ LIVE DOCUMENTS ══ -->
+  <div class="doc-link-bar">
+    <span class="dlb-label">Live Documents — open alongside this index</span>
+    <a href="https://folio.jacobsiler.com/?folio=proj_1776163661952_80nr9n" target="_blank" class="doc-link">
+      <span class="dl-icon">📖</span>
+      <span>
+        <span class="dl-title">Saga Bible</span><br>
+        <span class="dl-sub">Story · Characters · Arcs · Themes</span>
+      </span>
+    </a>
+    <a href="https://folio.jacobsiler.com/?folio=proj_1776165768514_mb7fmd" target="_blank" class="doc-link">
+      <span class="dl-icon">⚙</span>
+      <span>
+        <span class="dl-title">Games Bible</span><br>
+        <span class="dl-sub">Mechanics · Vessels · World Systems · Design</span>
+      </span>
+    </a>
+  </div>
+
+  <!-- ═══════════════════════════════════════ CHARACTERS ══ -->
+  <section class="section full-width" id="characters">
+    <div class="section-head"><span class="glyph">❧</span><h2>Characters — Confirmed Facts</h2></div>
+    <div class="section-body">
+
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 1.5rem;">
+
+        <div>
+          <div class="entry-key">
+            <div class="k-head">Fin Howland</div>
+            <div class="k-body">Age 19 in Book 1. Dark loosely-curled hair, hazel/green eyes. Worn brown leather duster — heavily weathered, brass shoulder hardware, high collar, practical not fashionable. Loose dark grey cravat at throat. White undershirt visible at chest. Skylark badge at chest. <strong>Favourite colour: turquoise</strong> (would never admit it). Allowance from Howland family still arrives monthly — he hates it. <strong>Alchemical symbol: Sulphur.</strong> Dies in Book 4 with Annette. <em>Portrait turnaround confirmed — costume details canonical.</em></div>
+          </div>
+          <div class="entry-key">
+            <div class="k-head">Annette Elliston</div>
+            <div class="k-body">Red-auburn hair, pale freckled skin, blue-grey eyes. Brown leather Skylark gear, brass medallion. <strong>Middle name: Andelia</strong> (family name, great-grandmother). <strong>Favourite colour: orange.</strong> Originally from Elekra; father a self-made fishing fleet captain in Maia waters. <strong>Alchemical symbol: Mercury.</strong> Dies in Book 4.</div>
+          </div>
+          <div class="entry-key">
+            <div class="k-head">Morna <em>Fenn</em> Elliston</div>
+            <div class="k-body">Maiden name Fenn. Skylark professional — covert operative, not merely Annette's school friend. Woman in maroon on Book 1 airbus, reading <em>Birds and Plumage.</em> Age ~40 in later books. One violet eye, one sightless. Face burned on one side. <strong>Favourite flower: Lilac.</strong> Prized possession: pocket knife with lilac engraving. Marries Farron in Book 2. <strong>Alchemical symbol: Salt.</strong> Disappears after Book 4 — redemption in <em>Fallen Stars.</em></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="entry-key">
+            <div class="k-head">Farron Elliston</div>
+            <div class="k-body">Annette's brother, Ant's guardian. Brilliant, distracted, deeply kind. Chemistry student at unnamed university in Sterope; later joins the Great Minds. Marries Morna in Book 2. Keeps the evening meal ritual throughout his life — it keeps both him and Ant from drifting. <strong>Believes Morna died in the fire. He is wrong.</strong></div>
+          </div>
+          <div class="entry-key">
+            <div class="k-head">Earskin Weatherall</div>
+            <div class="k-body">Swallows programme cadet; best pilot of his generation. Experiences the world fully only in the air. Survives Elekra attack with Brint and Melanie. Builds the Swallows airborne division from the ash of that event. Worn brown leather flight jacket, gear-laden utility belt, easy confident stance. <em>Portrait confirmed — costume canonical. Note: Book 2+ body language should carry the weight of Elekra; the ease is complicated now.</em> <strong>Alchemical symbol: Air.</strong></div>
+          </div>
+          <div class="entry-key">
+            <div class="k-head">Brint Carlson</div>
+            <div class="k-body">Couldn't pass the Skylark running test — has asthma. Was flight crew, not Skylarks, by technicality. Earskin's most reliable person. Lean build, warm expression, slightly watchful. Wears flight gear in a more considered way than Earskin — the flight crew aesthetic rather than the combat pilot. <em>Portrait confirmed.</em> The saga's quiet argument about institutional gatekeeping.</div>
+          </div>
+          <div class="entry-key">
+            <div class="k-head">Melanie <em>[surname TBD]</em></div>
+            <div class="k-body">Commander Spike's daughter. Lost her father in the Elekra attack. In Book 2: housekeeper at Mr. Watergate's manor on Manor Island. Sees everything, is seen by few. Has her father's eyes. Probable dreaming ability. <strong>Civilian costume confirmed:</strong> modest grey-brown wool jacket, practical skirt, leather shoulder bag — dresses to be invisible to authority, not to Skylark scale. Costuming is deliberately distinct from Earskin and Brint's flight gear; she came from a different world entirely. <em>Portrait confirmed.</em></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="entry-key">
+            <div class="k-head">Bruce Blackthorn <em>(Aeleric)</em></div>
+            <div class="k-body">Third-generation Blackthorn. Born on Stella but foreign origin invisible. Goal: find and activate the Sky Bridge beacon. Has no true self — was made, not corrupted. <strong>Fin's distrust is correct. Fin cannot prove it.</strong> <strong>Alchemical symbol: False gold — pyrite.</strong></div>
+          </div>
+          <div class="entry-key">
+            <div class="k-head">Victor Drazen</div>
+            <div class="k-body">Former Skylark captain. Marooned by Aeluric (Bruce's father). Believes Aeluric died loyal — he has been grieving his betrayer for years. Has been communicating with Aeluric's legacy via typewriter without knowing it. Captured Book 2. Escapes with Morna's help. Burns Fin and Annette's boat in Book 4 believing it alchemical. <strong>Never knows he was a pawn.</strong></div>
+          </div>
+          <div class="entry-key">
+            <div class="k-head">Jim McKraken <em>(Kenzie Darragh)</em></div>
+            <div class="k-body"><em>Jim</em> to the world. <em>Jem</em> to people he has chosen as family. Age late 50s in <em>Fallen Stars.</em> Secretly a pirate. Gap-toothed grin. Ivory-handled flintlock. Boat: the <em>Gryphon.</em> Pelican: Pesky. Cabin boy: Skip (found begging in Stormvale). Has a wife. <strong>Raises Sydney after the boat burns.</strong> Regrets: not saving the Howland parents sooner.</div>
+          </div>
+          <div class="entry-key">
+            <div class="k-head">Sydney & Ant Howland</div>
+            <div class="k-body">Fin and Annette's daughters. Born before Book 4. Sydney raised by Jim — strawberry blonde, age 17 in <em>Fallen Stars,</em> pirate, natural Oracle, appears in people's dreams. Ant raised by Farron — institutionally loyal, wants to be first woman Skylark (not knowing her mother was one).</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="legend">
+      <span><span class="badge confirmed"></span> Confirmed in canon</span>
+      <span><span class="badge open"></span> Awaiting decision</span>
+      <span><span class="badge caution"></span> Correction applied</span>
+      <span><span class="badge cavorite"></span> Cosmological fact</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ GEOGRAPHY ══ -->
+  <section class="section" id="geography">
+    <div class="section-head"><span class="glyph">✦</span><h2>Geography</h2></div>
+    <div class="section-body">
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Pleione</div><div class="value">The continent. Seven regions named after the Pleiades sisters.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Sterope</div><div class="value">Capital. Most industrialised. Home of the Sky Bridge and Skylarks HQ.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Elektra</div><div class="value">Flight country. Volatile, charged. Where Book 1 is primarily set. Cavorite research. Home of the Elekra Flight Base.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Maia</div><div class="value">Oldest, most traditional. Maritime port culture. Knife-makers, fishing fleets. Annette's father's territory.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Merope</div><div class="value">Least cavorite, most grounded. Rural. Peat bogs. Asphodel Valley. Looked down upon. Agron is the valley city where Fin and Annette conduct their stakeout investigation.</div></div></div>
+      <div class="entry"><div class="badge open"></div><div><div class="label">Celaeno</div><div class="value">The "lost" or damaged region. Leading candidate for the covered-up Rough Years disaster site. <em>Confirm with Allyson.</em></div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Alcyone</div><div class="value">Commercial maritime power. The region other regions resent.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Taygete</div><div class="value">Remote, mountainous, independent. Mentioned for fires in Book 1.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Manor Island</div><div class="value">Close to Elektra, accessible by ferry. Where the very wealthy live. Drazen's actual residence — not revealed until Book 3. Book 2: Fin and Annette visit Melanie at Mr. Watergate's manor here.</div></div></div>
+      <div class="entry"><div class="badge open"></div><div><div class="label">Grand Aero-Dock</div><div class="value">Location TBD — Sterope or Elektra coast. World wonder airship harbour, predecessor to the Sky Bridge.</div></div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ TECHNOLOGY ══ -->
+  <section class="section" id="technology">
+    <div class="section-head"><span class="glyph">⚙</span><h2>Technology</h2></div>
+    <div class="section-body">
+      <div class="entry"><div class="badge cavorite"></div><div><div class="label">Cavorite</div><div class="value">Stella's prima materia. Enables flight. Glows <strong>blue-green</strong> when active. Rare, gatekept, politically contested. The Mechanite harvest target.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Foot-Pedal Boiler System</div><div class="value">How Embers-era airships are piloted. Left pedal: fuel to boiler. Right pedal: steam to cavorite array. Both: propellers. Neither: descent. Earskin's mastery of this is his defining skill.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Henson AC</div><div class="value">Training glider. Cavorite-laced panels, steam coils, forward training gun. Twin gauges only.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Henson BAC</div><div class="value">Battle aerial craft. Cavorite lift coils, reinforced hull, twin turret mounts. Real teeth.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Personal Flight Harness</div><div class="value">Spike's workbench prototype. Steam pulse wings, gyroscopic leg mounts. <strong>Missing from workbench during Elekra attack.</strong> Planted seed — fate unconfirmed.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Steam Lifter Pack</div><div class="value">Emergency personal lift device. Brass canister, folding nozzles, worn as backpack. Single activation. Used in Dissolution cove scene. Democratised cavorite lift.</div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Paired Typewriters</div><div class="value">Communicate across any distance in real time. Aeluric gave one to Drazen before the marooning — framed as a lifeline, functioning as a leash. One in Skylarks evidence room.</div></div></div>
+      <div class="entry"><div class="badge open"></div><div><div class="label">Dissolving Agent</div><div class="value">Byproduct of corrupted cavorite refinement. Naturally produced on the Dissolving Isle. Drazen weaponises it in Book 2. Chemistry confirmed by Farron.</div></div></div>
+      <div class="entry"><div class="badge open"></div><div><div class="label">H.T.T. Network</div><div class="value">Identified by angular swan insignia. Connects to cavorite supply chain. Full name/meaning: <em>do not assign before Books 2-3 arc is written.</em></div></div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ TIMELINE ══ -->
+  <section class="section" id="timeline">
+    <div class="section-head"><span class="glyph">◈</span><h2>Timeline</h2></div>
+    <div class="section-body">
+      <div class="timeline-row"><div class="yr">~1810s</div><div class="ev">Cavorite ore discovered. First handlers report floating tools and strange dreams.</div></div>
+      <div class="timeline-row"><div class="yr">1810s–20s</div><div class="ev">The Rough Years. Catastrophic refinement attempts. Village(s) destroyed and covered up. Knowledge suppressed.</div></div>
+      <div class="timeline-row"><div class="yr">~1825</div><div class="ev">First working airship flight. The Ascendant Conclave consolidates control of refinement knowledge.</div></div>
+      <div class="timeline-row"><div class="yr">~1830–35</div><div class="ev"><em>Embers of Elekra</em> opens. Cavorite refined and controlled but rare. The Grand Aero-Dock under construction or newly complete.</div></div>
+      <div class="timeline-row"><div class="yr">1840s</div><div class="ev">The Cavorite Cartel formally consolidates. Sells lift-capacity, not the mineral.</div></div>
+      <div class="timeline-row"><div class="yr">1850s–60s</div><div class="ev">Pirate game era. Cavorite 40 years more mature. The Cartel as major faction.</div></div>
+      <div class="timeline-row"><div class="yr">~1870s</div><div class="ev"><em>Fallen Stars.</em> Multiple Sky Bridges. Mechanite arrival. Geosynchronous Bridge built in response and defiance.</div></div>
+    </div>
+    <div class="note-box"><strong>Scope note:</strong> The cavorite upgrade arc (Stages 0–4, The Plunge) applies to the pirate game era (1850s–60s) <em>only.</em> In the Embers era, cavorite is fixed infrastructure — not retrofitted onto civilian vessels.</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ COSMOLOGY ══ -->
+  <section class="section full-width" id="cosmology">
+    <div class="section-head"><span class="glyph">✧</span><h2>Cosmological Canon</h2></div>
+    <div class="section-body" style="display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem;">
+      <div>
+        <div class="entry-key">
+          <div class="k-head">The Beacon Network</div>
+          <div class="k-body">Built by Earth. Scattered across multiple solar systems. Each beacon is dormant until activated by the correct signal — known only to the Blackthorn family. <strong>The beacon on Stella is in the upper Sky Bridge lattice.</strong> It is not a distress signal. It is an assay report: <em>I found something worth taking.</em> The something is cavorite.</div>
+        </div>
+        <div class="entry-key">
+          <div class="k-head">The Mechanites</div>
+          <div class="k-body">Built by Earth as instruments of resource extraction. Purely mechanical. No malice, no awareness. They harvest and move on. Stella is a coordinate, not a home. <strong>Do not conquer — develop.</strong> Which is worse: you can fight an army but not a construction project. Accompanied by armoured human operators — the acquisition faction's surviving members.</div>
+        </div>
+        <div class="entry-key">
+          <div class="k-head">The Blackthorn Family</div>
+          <div class="k-body">Descendants of Earth's acquisition faction. Have watched one world harvested. Came to Stella three generations ago. Goal: find and activate the beacon, use the Mechanite arrival as leverage to escape off-planet. <strong>The Blackthorn chain:</strong> Aelurian → Aeluric → Bruce (Aeleric) → Drazen (twisted by, not born to it) → Morna (four generations removed, most visible damage).</div>
+        </div>
+      </div>
+      <div>
+        <div class="entry-key">
+          <div class="k-head">The Sky Bridge — One Structure in the Embers Era</div>
+          <div class="k-body"><strong>There is one Sky Bridge in Books 1-4.</strong> It is in Sterope. It is not yet a space elevator. It is a massive transit structure extending impossibly high — its upper section catches light <em>wrong</em> because the beacon is there. The geosynchronous Bridge (space elevator) is built in the <em>Fallen Stars</em> era in defiance of the Mechanite arrival. Multiple Bridges across Stella exist only in the post-<em>Fallen Stars</em> era.</div>
+        </div>
+        <div class="entry-key">
+          <div class="k-head">Earth</div>
+          <div class="k-body">Post-apocalyptic. Timeline: hundreds of years before <em>Sky Bridge.</em> Built the Mechanites as a final act — survival instinct, desperation, or something darker: deliberately ambiguous. <strong>Earth's alchemical stage: unknown.</strong> Has Earth completed the Work? Fixed as lead? Still mid-process? The saga's deepest question. <em>Never visited, described, or confirmed until the saga earns it.</em></div>
+        </div>
+        <div class="entry-key">
+          <div class="k-head">⚠️ Decision Point: Cavorite's Origin</div>
+          <div class="k-body">The Bridge material glows the same blue-green as active cavorite. <strong>Does cavorite derive from Bridge material</strong> (Earth seeded the crop and sent the harvesters), or is it independently occurring on Stella? This changes Earth's role in the saga significantly. <em>Discuss with Allyson before locking.</em></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ VISUAL CANON ══ -->
+  <section class="section" id="visual">
+    <div class="section-head"><span class="glyph">◉</span><h2>Visual Canon — Locked Colours & Design Language</h2></div>
+    <div class="section-body">
+      <div class="swatch-row"><div class="swatch" style="background:#7ec8e3;box-shadow:0 0 8px #7ec8e370;"></div><div class="sw-label">Active Cavorite / Bridge Material</div><div class="sw-note">Blue-green luminescence. <strong>Fixed across all visual development.</strong> Appears on cavorite bellies, hull coils, and the upper Sky Bridge lattice.</div></div>
+      <div class="swatch-row"><div class="swatch" style="background:#b8860b;"></div><div class="sw-label">Brass</div><div class="sw-note">Dominant material tone of Stella's technology. The Skylarks, the airships, the city infrastructure.</div></div>
+      <div class="swatch-row"><div class="swatch" style="background:#ff3020;border-color:rgba(255,255,255,0.3);"></div><div class="sw-label">Mechanite Accent Lights</div><div class="sw-note">Red. The deliberate opposite of cavorite's blue-green. Fixed. No warmth. No brass. No curves.</div></div>
+      <div class="swatch-row"><div class="swatch" style="background:#1a1612;border:1px solid #333;"></div><div class="sw-label">Mechanite Hull Material</div><div class="sw-note">Dark angular geometry. No wood. No steam. No hand-building, no wear, no personality.</div></div>
+      <div class="swatch-row"><div class="swatch" style="background:#d4a030;"></div><div class="sw-label">Grand Aero-Dock / Night Glow</div><div class="sw-note">Amber light, copper fittings. Cavorite heating coils glow blue-green at night, visible from sea for miles.</div></div>
+
+      <hr style="border:none;border-top:1px solid var(--border);margin:0.6rem 0;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--brass-light);opacity:0.7;margin-bottom:0.5rem;">Character Portrait Status</p>
+
+      <div class="swatch-row"><div class="swatch" style="background:#4a9a4a;"></div><div class="sw-label">Fin Howland</div><div class="sw-note">Turnaround sheet confirmed. Costume canonical. Eye colour: hazel/green per writing — not overridden by render.</div></div>
+      <div class="swatch-row"><div class="swatch" style="background:#4a9a4a;"></div><div class="sw-label">Annette Elliston</div><div class="sw-note">Group portrait confirmed. Red-auburn hair, brass medallion, brown leather Skylark gear.</div></div>
+      <div class="swatch-row"><div class="swatch" style="background:#4a9a4a;"></div><div class="sw-label">Morna (Book 1)</div><div class="sw-note">Woman in maroon, arms folded. Confirmed. Dark burgundy underlayer, not full Skylark gear — correct for covert operative.</div></div>
+      <div class="swatch-row"><div class="swatch" style="background:#4a9a4a;"></div><div class="sw-label">Earskin, Brint, Melanie</div><div class="sw-note">Trio portrait confirmed. Earskin and Brint in flight gear; Melanie in civilian grey-brown — costuming correctly distinguishes her origin from theirs.</div></div>
+      <div class="swatch-row"><div class="swatch" style="background:#d4a030;"></div><div class="sw-label">Morna (Burns era)</div><div class="sw-note">One violet eye, one sightless, burned half-face, dark mourning veil. Not yet in portrait assets.</div></div>
+      <div class="swatch-row"><div class="swatch" style="background:#d4a030;"></div><div class="sw-label">Jim, Sydney, Ant, Farron, Bruce</div><div class="sw-note">No confirmed portraits yet.</div></div>
+    </div>
+    <div class="note-box">
+      <strong>Visual Law for Mechanites:</strong> Everything about their design is the deliberate opposite of Stella. When Mechanites and Stella's technology appear in the same image, the contrast should be physically felt — warmth vs. cold, brass vs. dark alloy, hand-built vs. manufactured, blue-green vs. red.
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ FORESHADOWING ══ -->
+  <section class="section" id="foreshadow">
+    <div class="section-head"><span class="glyph">⟳</span><h2>Book 1 — Planted Seeds (Status)</h2></div>
+    <div class="section-body">
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">The Struck Name</div><div class="value">Governor Arthur produces a partial signature: <em>— Drazen.</em> Fin files it. <em class="tag">✅ Planted</em></div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">The Navigation Instrument</div><div class="value">Technician at Sky Bridge hub mentions anomaly to colleague, waved off. Two sentences. <em class="tag">✅ Planted</em></div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">The Upper Lattice</div><div class="value">Fin looks up, keeps looking, past where he has always looked away. Stillness of something waiting. <em class="tag">✅ Planted ×2</em></div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">The Oracle's Vision</div><div class="value">Annette recounts her mother's Oracle on the Andaire crossing: ships with no smoke, lights without fire. <em class="tag">✅ Planted</em></div></div></div>
+      <div class="entry"><div class="badge caution"></div><div><div class="label">The Cavorite Incidents</div><div class="value">Three unexplained refinery incidents — always independent facilities, always accidents. <em>NOT YET IN MANUSCRIPT.</em> Must be added in Book 1 revision or early Book 2. <em class="tag">⚠️ Missing</em></div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Jim's Unremarked Decency</div><div class="value">Child on the dock at Andaire. He raises one hand to her. Fin watches. Nobody mentions it. <em class="tag">✅ Planted</em></div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">The Typewriter</div><div class="value">Stanton: a typewriter printed alignment marks with nobody touching it. Under three locks. <em class="tag">✅ Planted</em></div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Bruce's Specific Interests</div><div class="value">Navigation anomalies. Great Minds schematics. Blackthorn legacy and grandfather's Great Minds connections overheard at the Andaire dock. <em class="tag">✅ Planted ×2</em></div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">Spike's Missing Harness</div><div class="value">Canvas present. Harness not. One second of registered absence. Filed away. <em class="tag">✅ Planted (new)</em></div></div></div>
+      <div class="entry"><div class="badge confirmed"></div><div><div class="label">The Green Marbled Paper</div><div class="value">Final chapter: a letter arrives addressed to Annette, written on green marbled paper. From Drazen in custody. She sets it down without saying what it says. <em class="tag">✅ Planted — opens Book 2</em></div></div></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ OPEN QUESTIONS ══ -->
+  <section class="section full-width" id="open">
+    <div class="section-head"><span class="glyph">?</span><h2>Open Questions — Unresolved Canon</h2></div>
+    <div class="section-body" style="display:grid;grid-template-columns:1fr 1fr;gap:0 1.5rem;">
+      <div>
+        <p style="color:var(--brass-light);font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.6rem;">🔥 Book 2 Priority</p>
+        <div class="oq"><span class="qnum">Q1</span><span class="qtext">What does Morna become? Active villain pursuing immortality, or broken person who does terrible things from wound rather than will?</span><span class="qtag">Allyson's territory</span></div>
+        <div class="oq"><span class="qnum">Q2</span><span class="qtext">Was Morna on the boat when it burned? Was she complicit?</span></div>
+        <div class="oq"><span class="qnum">Q4</span><span class="qtext">Morna's maiden name: Fenn — confirm?</span></div>
+        <div class="oq"><span class="qnum">Q5</span><span class="qtext">Who else is on the boat? Does anyone survive besides Sydney and Ant?</span></div>
+        <div class="oq"><span class="qnum">Q19</span><span class="qtext">Cavorite: naturally occurring on Stella, or seeded by Bridge material? Major cosmological decision.</span><span class="qtag">Discuss with Allyson</span></div>
+        <div class="oq"><span class="qnum">Q21</span><span class="qtext">Farron's chemistry institution — what is it called?</span></div>
+        <div class="oq"><span class="qnum">Q22</span><span class="qtext">Annette's middle name: Andelia — confirm?</span></div>
+        <div class="oq"><span class="qnum">Q23</span><span class="qtext">Jack and Bella — what happens to them? Do they appear in Fallen Stars?</span><span class="qtag">Allyson's territory</span></div>
+        <div class="oq"><span class="qnum">Q28</span><span class="qtext">Does Annette recognise the green marbled paper when Fletcher shows her the false clues?</span></div>
+        <div class="oq"><span class="qnum">Q32</span><span class="qtext">The proposal: dark cave after Annette rescues Fin — confirm this location?</span></div>
+        <div class="oq"><span class="qnum">–</span><span class="qtext">Melanie's surname (same as Spike's). Spike's full name. Confirm before Book 2.</span></div>
+        <div class="oq"><span class="qnum">–</span><span class="qtext">Captain's transition: circumstances of unnamed Captain's departure, Fletcher taking over.</span></div>
+      </div>
+      <div>
+        <p style="color:var(--parch-dark);font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:0.6rem;">📚 Series Priority</p>
+        <div class="oq"><span class="qnum">Q3</span><span class="qtext">What are Morna's abilities exactly? Dreaming/illusion — when did she develop them?</span></div>
+        <div class="oq"><span class="qnum">Q6</span><span class="qtext">How old are Sydney and Ant when the boat burns?</span></div>
+        <div class="oq"><span class="qnum">Q8</span><span class="qtext">Sydney as natural Oracle — conscious of ability or not? How does it manifest in Fallen Stars?</span><span class="qtag">Allyson's territory</span></div>
+        <div class="oq"><span class="qnum">Q11</span><span class="qtext">Jim's wife — name, role, does she know about Sydney before he brings her home?</span><span class="qtag">Allyson's territory</span></div>
+        <div class="oq"><span class="qnum">Q13</span><span class="qtext">Rough Years disaster site — Celaeno as leading candidate. Confirm before prequel.</span></div>
+        <div class="oq"><span class="qnum">Q14</span><span class="qtext">Aelurian Blackthorn's cover identity on Stella during/after the Rough Years.</span></div>
+        <div class="oq"><span class="qnum">Q15</span><span class="qtext">Grand Aero-Dock location: Sterope or Elektra coast?</span></div>
+        <div class="oq"><span class="qnum">Q17</span><span class="qtext">H.T.T. full name — do not assign before Books 2-3 arc is written.</span></div>
+        <div class="oq"><span class="qnum">Q18</span><span class="qtext">What exactly did Bruce's grandfather do to survive the Mechanite harvest?</span></div>
+        <div class="oq"><span class="qnum">Q24</span><span class="qtext">Earth's final status — spent its element, or does something remain?</span></div>
+        <div class="oq"><span class="qnum">Q25</span><span class="qtext">Is cavorite itself, or its raw precursor, what the Mechanites harvest?</span></div>
+        <div class="oq"><span class="qnum">Q35</span><span class="qtext">The boat's name (introduced as symbol in Book 3).</span></div>
+        <div class="oq"><span class="qnum">Q13 (Morning Star)</span><span class="qtext">What is the Morning Star organisation from Jim's character sheet?</span><span class="qtag">Allyson's territory</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ DOCUMENT STRUCTURE ══ -->
+  <section class="section full-width">
+    <div class="section-head"><span class="glyph">◫</span><h2>Document Structure</h2></div>
+    <div class="section-body" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+      <div>
+        <div class="entry-key">
+          <div class="k-head" style="color:var(--cavorite-glow);">Canon Index</div>
+          <div class="k-body">This file. The source of truth. Both downstream documents inherit from it. When a decision is made — in conversation with Allyson, in a writing session, in a design session — it goes here first, then into the relevant downstream document. <strong>Never invent in the Canon Index — only confirm.</strong></div>
+        </div>
+      </div>
+      <div>
+        <div class="entry-key">
+          <div class="k-head" style="color:var(--brass-light);">Saga Bible</div>
+          <div class="k-body">Story concerns: characters, arcs, themes, relationships, alchemical framework, plot architecture book by book, foreshadowing architecture, what each book must accomplish emotionally. <em>Open when writing.</em><br><br><a href="https://folio.jacobsiler.com/?folio=proj_1776163661952_80nr9n" target="_blank" style="color:var(--cavorite-glow);font-size:0.85rem;">📖 Open Saga Bible ↗</a></div>
+        </div>
+      </div>
+      <div>
+        <div class="entry-key">
+          <div class="k-head" style="color:var(--parch-mid);">Games Bible</div>
+          <div class="k-body">Mechanical concerns: world geography, technology timeline, vessel canon, combat systems, faction structures, visual identity, item lists, game-era breakdowns. <em>Open when designing.</em><br><br><a href="https://folio.jacobsiler.com/?folio=proj_1776165768514_mb7fmd" target="_blank" style="color:var(--cavorite-glow);font-size:0.85rem;">⚙ Open Games Bible ↗</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="note-box" style="margin:0.8rem 1.1rem 0.8rem;">
+      <strong>The rule:</strong> Fact confirmed in the Canon Index → both documents inherit it. Fact invented in a downstream document → must be promoted to Canon Index before it becomes official. Facts that conflict between documents → Canon Index wins, always.
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
