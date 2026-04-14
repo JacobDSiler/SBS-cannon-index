@@ -152,6 +152,11 @@
   }
   .full-width { grid-column: 1 / -1; }
 
+  /* SCROLL OFFSET — compensates for sticky header on anchor jumps */
+  section[id], div[id] {
+    scroll-margin-top: 110px;
+  }
+
   /* SECTION */
   .section {
     background: var(--warm);
